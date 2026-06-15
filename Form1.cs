@@ -35,11 +35,11 @@ namespace Cookie_Clicker
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveclicks = new SaveFileDialog();
-            saveclicks.Filter = "CC Save|*.cc";
+            saveclicks.Filter = "CC Save|*.cc"; // cookie clicker file
             DialogResult result = saveclicks.ShowDialog();
 
 
-            if (DialogResult.OK == result)
+            if (DialogResult.OK == result) // writes the amount of clicks to the cc file
             {
                 File.WriteAllText(saveclicks.FileName, clicks.ToString());
             }
@@ -54,7 +54,7 @@ namespace Cookie_Clicker
             if (result == DialogResult.OK) 
             {
                 clicks = 0;
-                clicks = int.Parse(File.ReadAllText(openclicks.FileName));
+                clicks = int.Parse(File.ReadAllText(openclicks.FileName)); // whats in the file is a string and not in integer, so therefore the app has to parse it as an int.
                 labelClicks.Text = "Clicks: " + clicks.ToString();
             }
         }
